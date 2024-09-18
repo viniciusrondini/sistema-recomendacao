@@ -75,4 +75,5 @@ filmes_assistidos_usuario = [1,0,0,1]
 #assistidos ex assistiu 1 e 3
 filmes_recomendados = recomendar_filmes(filmes_assistidos_usuario, filmes_assistidos, grupos_indice)
 
+
 print(f"\nFilmes recomendados: {filmes_recomendados}")
