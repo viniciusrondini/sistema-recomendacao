@@ -11,15 +11,12 @@ Original file is located at
 import numpy as np
 from sklearn.cluster import KMeans
 
+caminho_arquivo = '/content/filmes_100_usuarios.csv'
+df = pd.read_csv(caminho_arquivo)
+print(df.head())
+
 #matriz com filmes assistidos
-filmes_assistidos = np.array([
-    [1,0,0,1],
-    [1,1,0,0],
-    [0,1,1,0],
-    [0,0,1,1],
-    [1,0,1,0],
-    [0,1,0,1]
-])
+filmes_assistidos = df.drop(columns=["Unnamed: 0"]).values
 
 #definindo o numero de clusters (grupos)
 num_cluster = 2
@@ -70,7 +67,7 @@ def recomendar_filmes(filmes, filmes_assistidos, grupos_indice):
     return sorted(filmes_recomendados)
 
 #exemplo funcao recomendar filmes
-filmes_assistidos_usuario = [1,0,0,1]
+filmes_assistidos_usuario =  [1,0,0,1,1,1,0,0,0,1]
 
 #assistidos ex assistiu 1 e 3
 filmes_recomendados = recomendar_filmes(filmes_assistidos_usuario, filmes_assistidos, grupos_indice)
